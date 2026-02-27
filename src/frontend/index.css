@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General Sans — body */
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bricolage Grotesque — display */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Burn Rate Buddy: calm light neutral palette
+       Primary surface: warm off-white / light stone
+       Accent: teal-green (single accent)
+       Warning: warm amber
+       Destructive: coral red
+    */
+
+    /* backgrounds: warm off-white / light stone */
+    --background: 0.97 0.004 240;
+    --foreground: 0.18 0.01 240;
+
+    /* cards: pure white with subtle border */
+    --card: 0.995 0.002 240;
+    --card-foreground: 0.18 0.01 240;
+
+    --popover: 0.995 0.002 240;
+    --popover-foreground: 0.18 0.01 240;
+
+    /* single accent: teal-green */
+    --primary: 0.58 0.13 170;
+    --primary-foreground: 0.99 0.002 240;
+
+    --secondary: 0.93 0.006 240;
+    --secondary-foreground: 0.25 0.01 240;
+
+    --muted: 0.94 0.005 240;
+    --muted-foreground: 0.52 0.012 240;
+
+    --accent: 0.95 0.006 240;
+    --accent-foreground: 0.18 0.01 240;
+
+    --destructive: 0.58 0.2 25;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 0.88 0.008 240;
+    --input: 0.88 0.008 240;
+    --ring: 0.58 0.13 170;
+
+    /* chart colors */
+    --chart-1: 0.58 0.13 170;
+    --chart-2: 0.65 0.16 60;
+    --chart-3: 0.58 0.2 25;
+    --chart-4: 0.60 0.14 285;
+    --chart-5: 0.62 0.11 200;
+
+    /* sidebar: very light */
+    --sidebar: 0.975 0.004 240;
+    --sidebar-foreground: 0.25 0.01 240;
+    --sidebar-primary: 0.58 0.13 170;
+    --sidebar-primary-foreground: 0.99 0.002 240;
+    --sidebar-accent: 0.93 0.006 240;
+    --sidebar-accent-foreground: 0.25 0.01 240;
+    --sidebar-border: 0.88 0.008 240;
+    --sidebar-ring: 0.58 0.13 170;
+
+    /* warning amber */
+    --warning: 0.68 0.16 70;
+    --warning-foreground: 0.99 0.002 240;
+    --warning-bg: 0.97 0.04 80;
+
+    /* success */
+    --success: 0.52 0.13 150;
+    --success-foreground: 0.99 0.002 240;
+
+    /* card shadow */
+    --shadow-card: 0 1px 3px oklch(0 0 0 / 0.06), 0 1px 2px oklch(0 0 0 / 0.04);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", ui-sans-serif, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", ui-sans-serif, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Bricolage Grotesque", ui-sans-serif, sans-serif;
+  }
+
+  .font-body {
+    font-family: "General Sans", ui-sans-serif, sans-serif;
+  }
+
+  .text-warning {
+    color: oklch(var(--warning));
+  }
+
+  .bg-warning {
+    background-color: oklch(var(--warning));
+  }
+
+  .bg-warning-bg {
+    background-color: oklch(var(--warning-bg));
+  }
+
+  .border-warning {
+    border-color: oklch(var(--warning));
+  }
+
+  .text-success {
+    color: oklch(var(--success));
+  }
+
+  /* number tabular figures */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
